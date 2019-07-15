@@ -61,27 +61,25 @@ TARGET_2ND_CPU_VARIANT := cortex-a73
 TARGET_USES_UEFI := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 
-BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048 androidboot.usbconfigfs=true 
-BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 
-BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1
+BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048 androidboot.usbconfigfs=true
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/oneplus/msm8998
-TARGET_KERNEL_CONFIG := weebcustom_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-
-# Clang
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := 9.0.5
+TARGET_KERNEL_CLANG_VERSION := 9.0.4
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+#TARGET_KERNEL_ARCH := arm64
+#TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/oneplus/msm8998
+TARGET_KERNEL_CONFIG := oneplus5_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -312,7 +310,7 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Vendor Security Patch
-VENDOR_SECURITY_PATCH := 2019-06-05
+VENDOR_SECURITY_PATCH := 2019-07-05
 
 # VNDK
 BOARD_VNDK_VERSION := current
